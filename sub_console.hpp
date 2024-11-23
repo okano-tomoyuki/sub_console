@@ -48,8 +48,6 @@ public:
 
         PROCESS_INFORMATION pi;
         STARTUPINFOA si = {sizeof(STARTUPINFOA)};
-        CloseHandle(si.hStdInput);
-        CloseHandle(si.hStdOutput);
         if (!CreateProcessA(NULL, const_cast<char *>(ps1_script(pipe_name, buffer_size).c_str()), NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
         {
             CloseHandle(pipe_handle_);
